@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinateMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_screen"
+        tools:context=".ui.AudioListActivity">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtTitle"
+            style="@style/txtMedium_12Style"
+            android:paddingVertical="@dimen/_20sdp"
+            android:text="@string/recording"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_white_top_radius_16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@android:color/white"
+            android:padding="@dimen/_8sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitle">
+
+            <com.jigar.audioplayer.utils.ui.audioview.RecorderVisualizerView
+                android:id="@+id/visualizerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@color/white" />
+        </FrameLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtPlayRecordingMsg"
+            style="@style/txtRegular_12Style"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:gravity="center"
+            android:padding="@dimen/_20sdp"
+            android:text="@string/you_can_save_this_record_as_it_is_or_ncontinue_recording"
+            android:textColor="@color/colorTitle"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/cardPlayRecording"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtPlayRecordingTime"
+            style="@style/txtBold_30Style"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:gravity="center"
+            android:padding="@dimen/_20sdp"
+            android:textColor="@color/colorTitle"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/cardPlayRecording"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="00:01"
+            tools:visibility="visible" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardPlayRecording"
+            android:layout_width="@dimen/_44sdp"
+            android:layout_height="@dimen/_44sdp"
+            android:layout_marginBottom="@dimen/_40sdp"
+            android:visibility="gone"
+            app:cardBackgroundColor="@color/gray_9f"
+            app:cardCornerRadius="@dimen/_22sdp"
+            app:cardElevation="@dimen/_2sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitle"
+            tools:visibility="visible">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgPlayPause"
+                android:layout_width="@dimen/_28sdp"
+                android:layout_height="@dimen/_28sdp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_baseline_play_arrow_24"
+                app:tint="@color/white" />
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardStopContinueRecording"
+            android:layout_width="@dimen/_36sdp"
+            android:layout_height="@dimen/_36sdp"
+            android:layout_marginBottom="@dimen/_40sdp"
+            app:cardBackgroundColor="@color/bg_icon_orange"
+            app:cardCornerRadius="@dimen/_18sdp"
+            app:cardElevation="@dimen/_2sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgStopContinue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                tools:srcCompat="@drawable/ic_baseline_stop_recording" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtStopContinue"
+            style="@style/txtMedium_10Style"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:text="@string/stop"
+            android:textColor="@color/colorTitle"
+            app:layout_constraintEnd_toEndOf="@+id/cardStopContinueRecording"
+            app:layout_constraintStart_toStartOf="@+id/cardStopContinueRecording"
+            app:layout_constraintTop_toBottomOf="@+id/cardStopContinueRecording" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardUndoRecording"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginBottom="@dimen/_40sdp"
+            app:cardBackgroundColor="@color/gray_9f"
+            app:cardCornerRadius="@dimen/_15sdp"
+            app:cardElevation="@dimen/_2sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cardStopContinueRecording"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_baseline_indo" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/txtMedium_10Style"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:text="@string/undo"
+            android:textColor="@color/colorTitle"
+            app:layout_constraintEnd_toEndOf="@+id/cardUndoRecording"
+            app:layout_constraintStart_toStartOf="@+id/cardUndoRecording"
+            app:layout_constraintTop_toBottomOf="@+id/cardUndoRecording" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardSaveRecording"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginBottom="@dimen/_40sdp"
+            app:cardBackgroundColor="@color/bg_icon"
+            app:cardCornerRadius="@dimen/_15sdp"
+            app:cardElevation="@dimen/_2sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cardStopContinueRecording">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_baseline_save_recording" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/txtMedium_10Style"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:text="@string/save"
+            android:textColor="@color/colorTitle"
+            app:layout_constraintEnd_toEndOf="@+id/cardSaveRecording"
+            app:layout_constraintStart_toStartOf="@+id/cardSaveRecording"
+            app:layout_constraintTop_toBottomOf="@+id/cardSaveRecording" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpRecordingComplete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="cardSaveRecording,cardUndoRecording" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/linearBottomsheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="bottom"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:orientation="vertical"
+        android:background="@drawable/bg_white_top_radius_16"
+        android:elevation="10dp"
+        android:padding="@dimen/_12sdp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="3dp"
+            app:cardCornerRadius="1.5dp"
+            app:cardBackgroundColor="@color/gray_e3"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/txtBold_12Style"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:text="@string/save_your_recording"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:id="@+id/edtFileName"
+            style="@style/edtRegular_12Style"
+            android:backgroundTint="@color/black"
+            android:hint="@string/file_name"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
+            android:id="@+id/btnSaveFile"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/bg_icon"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

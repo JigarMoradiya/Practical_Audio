@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">AudioPlayer</string>
+    <string name="permission_needed">Permission needed</string>
+    <string name="settings">Settings</string>
+    <string name="create_podcast">Create Podcast</string>
+    <string name="publish">Publish</string>
+    <string name="import_files">Import files</string>
+    <string name="record">Record</string>
+    <string name="filepath_not_found">File not found, please select other file</string>
+    <string name="recording">Recording</string>
+    <string name="stop">Stop</string>
+    <string name="recording_start">Recording Start</string>
+    <string name="recording_fail">Recording Fail</string>
+    <string name="recording_complete">Recording Complete</string>
+    <string name="save">Save</string>
+    <string name="undo">Undo</string>
+    <string name="continues">Continue</string>
+    <string name="recording_deleted">Recording Deleted</string>
+    <string name="recording_deleted_fail">Recording Deleted Fail</string>
+    <string name="you_can_save_this_record_as_it_is_or_ncontinue_recording">You can save this record as it is, or\ncontinue recording</string>
+    <string name="save_your_recording">Save your recording</string>
+    <string name="file_name">File Name</string>
+    <string name="enter_file_name">Please enter file name</string>
+    <string name="file_exist">File already exist</string>
+</resources>

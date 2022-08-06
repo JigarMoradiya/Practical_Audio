@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="isPlaying"
+            type="Boolean"/>
+        <variable
+            name="dataModel"
+            type="com.jigar.audioplayer.datamodel.AudioDataModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_8sdp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/_8sdp"
+        app:cardElevation="@dimen/_2sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_8sdp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardPlayPause"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_margin="@dimen/_5sdp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/_20sdp"
+                app:cardElevation="@dimen/_4sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgPlay"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/_8sdp"
+                    android:visibility="@{isPlaying?View.GONE:View.VISIBLE}"
+                    app:srcCompat="@drawable/ic_baseline_play_arrow_24"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgPause"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/_8sdp"
+                    android:visibility="@{isPlaying?View.VISIBLE:View.GONE}"
+                    app:srcCompat="@drawable/ic_baseline_pause_24"/>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtTitle"
+                style="@style/txtMedium_12Style"
+                android:layout_width="0dp"
+                android:text="@{dataModel.name}"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:textColor="@color/colorTitle"
+                app:layout_constraintBottom_toTopOf="@+id/txtTime"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/cardPlayPause"
+                app:layout_constraintTop_toTopOf="@+id/cardPlayPause"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="Copying Anxiety" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtTime"
+                style="@style/txtRegular_11Style"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:textColor="@color/colorSubTitle"
+                app:fileTime="@{dataModel.time}"
+                app:layout_constraintBottom_toBottomOf="@+id/cardPlayPause"
+                app:layout_constraintStart_toStartOf="@+id/txtTitle"
+                app:layout_constraintTop_toBottomOf="@+id/txtTitle"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="20 min ago" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtTotalDuration"
+                style="@style/txtRegular_11Style"
+                android:layout_width="0dp"
+                app:audioDuration="@{dataModel.duration}"
+                android:textColor="@color/colorSubTitle"
+                app:layout_constraintBottom_toBottomOf="@+id/txtTime"
+                app:layout_constraintEnd_toStartOf="@+id/txtPublish"
+                app:layout_constraintStart_toEndOf="@+id/txtTime"
+                app:layout_constraintTop_toTopOf="@+id/txtTime"
+                tools:text="   •   24:51" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtPublish"
+                style="@style/txtMedium_12Style"
+                android:drawableEnd="@drawable/ic_baseline_arrow_forward_16"
+                android:drawablePadding="@dimen/_4sdp"
+                android:text="@string/publish"
+                android:textColor="@color/bg_icon"
+                app:drawableTint="@color/bg_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
